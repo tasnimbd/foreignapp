@@ -65,6 +65,7 @@ Vue.use(Editor)
 
 
 Vue.component('admin-router', require('./components/admin/Adminmaster.vue').default);
+Vue.component('frontend-router', require('./components/frontend/Frontendmaster.vue').default);
 
 const router = new VueRouter({
     routes, // short for `routes: routes`

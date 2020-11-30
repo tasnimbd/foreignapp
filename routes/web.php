@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app');
 });
 
 //admin post controller
@@ -30,10 +30,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('pubgetcategory', 'FrontendController@getCategories');
-//Route::get('pubgetcategorywithcount', 'FrontendController@getCategoriesCount');
-//Route::get('pubgetpost', 'FrontendController@getPost');
-//Route::get('publatestpost', 'FrontendController@pubLatestPost');
+Route::get('pubgetcategory', 'FrontendController@getCategories');
+Route::get('pubgetcategorywithcount', 'FrontendController@getCategoriesCount');
+Route::get('pubgetpost', 'FrontendController@getPost');
+Route::get('publatestpost', 'FrontendController@pubLatestPost');
 
 
 Route::post('/createpost', 'AdminContrller@uploadEditorImage');

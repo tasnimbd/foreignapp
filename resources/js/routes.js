@@ -26,6 +26,10 @@ export const routes = [
     { 
         path: '/editpost/:id', 
         component: require('./components/admin/posts/Edit.vue').default 
+    },
+    { 
+        path: '/', 
+        component: require('./components/frontend/Home.vue').default
     }
    
 ]
