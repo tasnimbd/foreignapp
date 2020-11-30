@@ -6,7 +6,7 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>Author: Tasnim Alam</title>
+<title></title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -29,16 +29,17 @@
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
+    <!-- SEARCH FORM -->
+    <div class="form-inline ml-3">
+        <div class="input-group input-group-sm">
+          <input class="form-control form-control-navbar" type="search" v-model="search" @keyup="searchit" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-navbar" @click="searchit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
         </div>
       </div>
-    </form>
 
     <!-- Right navbar links -->
     
@@ -91,16 +92,16 @@
                 </a>
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="../../index.html" class="nav-link">
+                    <router-link to="/categories" class="nav-link">
                     <i class="fas fa-list-ul nav-icon pink"></i>
                     <p>Categories</p>
-                    </a>
+                    </router-link>
                 </li>
                 <li class="nav-item">
-                    <a href="../../index2.html" class="nav-link">
+                    <router-link to="/manageposts" class="nav-link">
                     <i class="fas fa-list-ul nav-icon yellow"></i>
                     <p>Posts</p>
-                    </a>
+                    </router-link>
                 </li>
                
                 </ul>
@@ -139,6 +140,7 @@
     <!-- Content Header (Page header) -->
     
     <admin-router></admin-router>
+    <vue-progress-bar></vue-progress-bar>
     
   </div>
   <!-- /.content-wrapper -->

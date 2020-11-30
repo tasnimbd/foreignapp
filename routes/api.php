@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResources(['category' => 'API\CategoryController']);
+Route::get('findcategory', 'API\CategoryController@search');
+Route::get('getcategory', 'API\CategoryController@getCategoryForPost');
