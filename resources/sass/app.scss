@@ -8,3 +8,39 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~admin-lte/dist/css/adminlte.css';
 @import "~@fortawesome/fontawesome-free/css/all.css";
+
+
+.router-link-exact-active{
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+.blue{
+    color: #3490dc
+}
+.indigo{
+    color: #6574cd
+}
+.purple{
+    color: #9561e2
+}
+.pink{
+    color: #f66d9b
+}
+.red{
+    color: #e3342f
+}
+.orange{
+    color: #f6993f
+}
+.green{
+    color: #38c172
+}
+.yellow{
+    color: #ffed4a
+}
+.teal{
+    color: #4dc0b5
+}
+.cyan{
+    color: #6cb2eb
+}
