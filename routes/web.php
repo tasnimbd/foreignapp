@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('app');
-});
+Route::get('/', 'FrontendController@index');
 
 //admin post controller
 Route::post('/upload', 'PostController@upload');
@@ -34,9 +32,24 @@ Route::get('pubgetcategory', 'FrontendController@getCategories');
 Route::get('pubgetcategorywithcount', 'FrontendController@getCategoriesCount');
 Route::get('pubgetpost', 'FrontendController@getPost');
 Route::get('publatestpost', 'FrontendController@pubLatestPost');
+//Route::get('search', 'FrontendController@frontendsearch');
+Route::get('/singlepost/{slug}','FrontendController@getpost_by_slug');
+
 
 
 Route::post('/createpost', 'AdminContrller@uploadEditorImage');
 
-Route::get('{path}', 'HomeController@index')->where( 'path', '([A-z\d\/.]+)?' );
-//Route::get('{path}', 'HomeController@index')->where( 'path', '([A-z\d-/_.]+)?' );
+//Route::get('{path}', 'HomeController@index')->where( 'path', '([A-z\d\/.]+)?' );
+Route::get('{path}',"HomeController@index")->where('path','[-a-z0-9_\s]+');
+Route::get('{path}', 'FrontendController@index')->where('path','[-a-z0-9_\s]+');
+
+/*Route::get('{any}', function () {
+    return view('app');
+})->where('any','.*');*/
+
+//Route::get('/{any}', function() { return view('app'); })->where('any', '(.*)');
+//Route::get('/blog/{slug}', function () { return view('app'); })->where('slug', '[\/\w\.-]*');
+
+Route::get('/{any}', function () {
+    return view('app');
+})->where('any', '.*');

@@ -9,32 +9,40 @@
                         <div class="col-lg-12" v-for="(post, i) in posts.data" :key="i">
                         <div class="standard-post">
                             <div class="post-image">
-                            <a href="single-standard-post.html"><img :src="post.feature_photo" alt=""></a>
+                            <router-link :to="`/blog/${post.slug}`"><img :src="post.feature_photo" alt=""></router-link>
                             </div>
                             <div class="down-content">
                             <div class="meta-category">
                                 <span v-for="(c, j) in post.cat" :key="j">{{c.cat_name}}</span>
                             </div>
-                            <a href="single-standard-post.html"><h4>{{post.title}}</h4></a>
+                            <router-link :to="`/blog/${post.slug}`"><h4>{{post.title}}</h4></router-link>
                             <ul class="post-info">
                                 <li>{{post.created_at | myFullDate}}</li>
                                 <li>{{post.user.name}}</li>
                             </ul>
                             <p>{{post.post_excerpt | sortlength(237, "...")}}</p>
                             <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                <div class="comments-info">
-                                    <i class="fa fa-comment-o"></i>
-                                    <span>8 comments</span>
-                                </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                <ul class="share-post">
-                                    <li><i class="fa fa-share-alt"></i></li>
-                                    <li><a href="#">Facebook</a>,</li>
-                                    <li><a href="#">Twitter</a>,</li>
-                                    <li><a href="#">Pinterest</a></li>
-                                </ul>
+                                
+                               <div class="col-lg-12 col-md-12">
+                                    <center><facebook-button
+                                        :url="`http://127.0.0.1:8000/blog/${post.slug}`"
+                                        v-bind:isBlank="false" btnText
+
+                                    />
+                                    <twitter-button
+                                        :url="`http://127.0.0.1:8000/blog/${post.slug}`"
+                                        v-bind:isBlank="false" btnText
+                                    />
+                                    <reddit-button
+                                        :url="`http://127.0.0.1:8000/blog/${post.slug}`"
+                                        v-bind:isBlank="false" btnText
+                                    />
+                                    <pinterest-button
+                                        :url="`http://127.0.0.1:8000/blog/${post.slug}`"
+                                        v-bind:isBlank="false" btnText
+                                    /></center>
+
+                             
                                 </div>
                             </div>
                             </div>
@@ -59,10 +67,18 @@
 
 <script>
 import Sidebar from "./partials/Sidebar.vue";
+import FacebookButton from "vue-share-buttons/src/components/FacebookButton";
+import TwitterButton from "vue-share-buttons/src/components/TwitterButton";
+import RedditButton from "vue-share-buttons/src/components/RedditButton";
+import PinterestButton from "vue-share-buttons/src/components/PinterestButton";
 export default {
     name: 'Home',
     components:{
-        Sidebar
+        Sidebar,
+        FacebookButton,
+        TwitterButton,
+        RedditButton,
+        PinterestButton
     }, 
     metaInfo() {
         return { 
@@ -85,6 +101,8 @@ export default {
         }
     },
 
+    
+
     methods:{
         getResults(page = 1) {
             axios.get('pubgetpost?page=' + page)
@@ -101,10 +119,14 @@ export default {
   created(){
       this.loadPost()
       
-  }
+  },
+  
+
+
 
 
 
     
 }
 </script>
+

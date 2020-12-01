@@ -35,6 +35,8 @@
         "vue-meta": "^2.4.0",
         "vue-progressbar": "^0.7.5",
         "vue-router": "^3.4.9",
+        "vue-share-buttons": "^1.1.0",
+        "vue-share-social": "^0.3.2",
         "vuex": "^3.6.0"
     }
 }

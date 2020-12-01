@@ -63,13 +63,27 @@ Vue.mixin(jsonToHtml)
 import Editor from 'vue-editor-js'
 Vue.use(Editor)
 
+//VueShareSocial
+import VueShareSocial from 'vue-share-social'
+Vue.use(VueShareSocial)
+
+// Support vuex
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
+import storeData from "./store/index"
+const store = new Vuex.Store(
+    storeData
+)
+
 
 Vue.component('admin-router', require('./components/admin/Adminmaster.vue').default);
 Vue.component('frontend-router', require('./components/frontend/Frontendmaster.vue').default);
 
 const router = new VueRouter({
     routes, // short for `routes: routes`
-    mode:'history',
+    mode: 'hash'
+    
 
 })
 
@@ -79,12 +93,13 @@ window.Fire = new Vue()
 const app = new Vue({
     el: '#app',
     router,
+    store,
     data:{
         search: ''
     },
     methods:{
         searchit: _.debounce(() =>{
             Fire.$emit('searching')
-        },2000)
+        },1000)
     }
 });

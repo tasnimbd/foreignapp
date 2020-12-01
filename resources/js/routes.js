@@ -30,6 +30,11 @@ export const routes = [
     { 
         path: '/', 
         component: require('./components/frontend/Home.vue').default
+    },
+
+    { 
+        path: '/blog/:slug',
+        component: require('./components/frontend/Single.vue').default
     }
    
 ]

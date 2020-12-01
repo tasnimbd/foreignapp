@@ -14,11 +14,12 @@
                         <a href="#">Read More</a>
                     </div>
                     <ul class="social-icons">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        <li><a href="https://www.facebook.com/sfconsultingbd/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/sfconsultingbd" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/s-&-f-consulting-firm-limited/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="https://www.instagram.com/sfconsultingfirm/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://www.pinterest.com/sfconsultingbd/" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="https://www.youtube.com/user/companyregistration1/" target="_blank"><i class="fa fa-youtube"></i></a></li>
                     </ul>
                     </div>
                 </div>
@@ -32,7 +33,7 @@
                     <div class="widget-content">
                     <ul class="latest-post-list" v-for="(lpost, i) in latestpost" :key="i">
                         <li v-if="i<5">
-                        <a href="single-standard-post.html">
+                         <router-link :to="`/blog/${lpost.slug}`">
                             <div class="left-image">
                             <img style="width:80px;height:80px;" :src="lpost.feature_photo" alt="">
                             <span>9</span>
@@ -41,7 +42,7 @@
                             <h6>{{lpost.title}}</h6>
                             <span>{{lpost.created_at | myFullDate}}</span>
                             </div>
-                        </a>
+                         </router-link>
                         </li>
                         
                     </ul>
@@ -89,9 +90,14 @@ export default {
     }
     },
 
+    
     created(){
         this.latestPost()
         this.loadCategories()
-    }
+    },
+
+   
+
+    
 }
 </script>

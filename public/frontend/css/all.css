@@ -3818,11 +3818,11 @@ section.above-header {
     display: -webkit-inline-box;
     display: inline-flex; }
     .main-menu > li + li {
-      margin-left: 60px; }
+      margin-left: 38px; }
     .main-menu > li > a {
       padding: 30px 0;
       position: relative;
-      text-transform: uppercase;
+      text-transform: capitalize;
       font-size: 15px;
       letter-spacing: 0px;
       font-weight: 700;

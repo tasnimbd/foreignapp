@@ -16,6 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{mix('/frontend/css/all.css')}}">
@@ -23,6 +24,7 @@
 <body>
     <div id="app">
         <frontend-router></frontend-router>
+        
     </div>
 
     <!-- Scripts -->

@@ -16,27 +16,24 @@
         <div class="container">
             <div class="row">
             <div class="col-lg-4 align-self-center">
-                <ul class="social-icons">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                </ul>
-            </div>
-            <div class="col-lg-4 align-self-center">
                 <div class="logo">
                 <router-link to="/"><img style="width:25%!important;" src="frontend/images/logo.png" alt=""></router-link>
                 </div>
             </div>
-            <div class="col-lg-4 align-self-center">
-                <ul class="search-item">
-                <li class="menu-item menu-search">
-                    <a href="#search" id="menu-search-btn">
-                    <i class="icon_search"></i>
-                    </a>
-                </li>
+            <!--<div class="col-lg-4 align-self-center">
+                <ul class="social-icons">
+                  <li><a href="https://www.facebook.com/sfconsultingbd/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="https://twitter.com/sfconsultingbd" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="https://www.linkedin.com/company/s-&-f-consulting-firm-limited/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a href="https://www.instagram.com/sfconsultingfirm/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="https://www.pinterest.com/sfconsultingbd/" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                  <li><a href="https://www.youtube.com/user/companyregistration1/" target="_blank"><i class="fa fa-youtube"></i></a></li>
                 </ul>
+            </div>--->
+            <div class="col-lg-8 align-self-center">
+                <img src="https://tpc.googlesyndication.com/simgad/10584050030605284207?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&rs=AOga4qm4soO1QWXZhgQXyndSG_Kj5M2W5A"/>
             </div>
+            
             </div>
         </div>
         </section>
@@ -72,18 +69,11 @@
 
         <!-- change class -->
         <div class="change-class"></div>
-
-        <div id="search">
-        <button type="button" class="close">×</button>
-            <form>
-                <input type="search" value="" placeholder="Search..." />
-                <button type="submit" class="primary-button"><i class="icon_search"></i></button>
-            </form>
-        </div>
         
         <!---end header section--->
-        <router-view></router-view>
-
+        <!--<router-view></router-view>-->
+        <router-view :key="$route.fullPath"></router-view>
+        
         <!----start footer section--->
         <div class="instagram-footer">
       <div class="container">
@@ -149,22 +139,37 @@
 </template>
 
 <script>
+import _ from 'lodash'
 export default {
   data(){
     return {
-      categories: []
+      categories: [],
+      search:'',
+      //posts:[]
     }
   },
   methods:{
     loadCategories(){
         axios.get('pubgetcategory')
         .then(({data}) => (this.categories = data))
-    }
+    },
+    searchit:_.debounce(function () {
+      let query = this.search
+      axios.get('search?q='+ query)
+      .then((data) => {
+        this.posts = data.data
+      })
+      .catch(() => {
+        
+      })
+    },1000)
 
   },
 
   created(){
       this.loadCategories()
+     
+      
   }
 
 
@@ -182,4 +187,26 @@ footer {
     margin-top: -153px!important;
     padding-top: 213px!important;
 }
+
+.main-menu>li+li {
+    margin-left: 38px!important;
+}
+.main-menu>li>a{
+    font-size: 15px!important;
+    text-transform: capitalize!important;
+}
+.search_input{
+  height: 60px;
+  color: #1e1e1e;
+  background: rgba(0, 0, 0, 0);
+  padding: 15px;
+  font-weight: 500;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #ffffff;
+  text-align: center;
+  outline: none;
+}
+
 </style>
