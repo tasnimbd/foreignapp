@@ -39,9 +39,9 @@ Route::get('/singlepost/{slug}','FrontendController@getpost_by_slug');
 
 Route::post('/createpost', 'AdminContrller@uploadEditorImage');
 
-//Route::get('{path}', 'HomeController@index')->where( 'path', '([A-z\d\/.]+)?' );
-Route::get('{path}',"HomeController@index")->where('path','[-a-z0-9_\s]+');
-Route::get('{path}', 'FrontendController@index')->where('path','[-a-z0-9_\s]+');
+Route::get('{path}', 'HomeController@index')->where( 'path', '([A-z\d\/.]+)?' );
+//Route::get('{path}',"HomeController@index")->where('path','[-a-z0-9_\s]+');
+//Route::get('{path}', 'FrontendController@index')->where('path','[-a-z0-9_\s]+');
 
 /*Route::get('{any}', function () {
     return view('app');
@@ -50,6 +50,6 @@ Route::get('{path}', 'FrontendController@index')->where('path','[-a-z0-9_\s]+');
 //Route::get('/{any}', function() { return view('app'); })->where('any', '(.*)');
 //Route::get('/blog/{slug}', function () { return view('app'); })->where('slug', '[\/\w\.-]*');
 
-Route::get('/{any}', function () {
+/*Route::get('/{any}', function () {
     return view('app');
-})->where('any', '.*');
+})->where('any', '.*');*/

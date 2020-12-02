@@ -82,7 +82,7 @@ Vue.component('frontend-router', require('./components/frontend/Frontendmaster.v
 
 const router = new VueRouter({
     routes, // short for `routes: routes`
-    mode: 'hash'
+    mode: 'history'
     
 
 })

@@ -5397,7 +5397,87 @@ section.large-gap {
 .without-sidebar-home ul.pagination {
   border-top: 3px solid #f7f7f7;
   padding-top: 40px; }
+  .single-posts .single-post .down-content h1{
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 32px!important;
+    letter-spacing: .25px;
+    font-weight: 700;
+    font-family: Cormorant,Arial,Helvetica,serif;
+    line-height: 36px;
+    text-align: left;
+    padding: 0
+  }
 
+  .single-posts .single-post .down-content h2{
+    margin-top: 20px!important;
+    margin-bottom: 20px;
+    font-size: 28px!important;
+    letter-spacing: .25px;
+    font-weight: 700;
+    font-family: Cormorant,Arial,Helvetica,serif;
+    line-height: 36px;
+    text-align: left;
+    padding: 0
+  }
+
+  .single-posts .single-post .down-content ul li{
+    margin-bottom: 0;
+    list-style: inside decimal;
+    font-size: 14px;
+    color: #5a5a5a;
+    line-height: 35px;
+    font-weight: 600;
+  }
+
+  .single-posts .single-post .down-content h3{
+    margin-top: 20px!important;
+    margin-bottom: 20px;
+    font-size: 25px;
+    letter-spacing: .25px;
+    font-weight: 700;
+    font-family: Cormorant,Arial,Helvetica,serif;
+    line-height: 36px;
+    text-align: left;
+    padding: 0
+  }
+
+  .single-posts .single-post .down-content h4{
+    margin-top: 20px!important;
+    margin-bottom: 20px;
+    font-size: 22px!important;
+    letter-spacing: .25px;
+    font-weight: 700;
+    font-family: Cormorant,Arial,Helvetica,serif;
+    line-height: 36px;
+    text-align: left;
+    padding: 0
+  }
+
+  .single-posts .single-post .down-content h5{
+    margin-top: 20px!important;
+    margin-bottom: 20px;
+    font-size: 20px!important;
+    letter-spacing: .25px;
+    font-weight: 700;
+    font-family: Cormorant,Arial,Helvetica,serif;
+    line-height: 36px;
+    text-align: left;
+    padding: 0
+  }
+
+  .single-posts .single-post .down-content h5{
+    margin-top: 20px!important;
+    margin-bottom: 20px;
+    font-size: 15px!important;
+    letter-spacing: .25px;
+    font-weight: 700;
+    font-family: Cormorant,Arial,Helvetica,serif;
+    line-height: 36px;
+    text-align: left;
+    padding: 0
+  }
+  
 .masonry-layout {
   margin-bottom: -45px !important; }
   @media (min-width: 992px) {
@@ -5595,10 +5675,10 @@ ul.pagination {
           .single-posts .single-post .down-content ul.post-info li a:hover {
             color: #79a472; }
     .single-posts .single-post .down-content p {
-      margin-top: 0px;
+      margin-top: 20px!important;
       text-align: left;
       border-bottom: none;
-      margin-bottom: 0px;
+      margin-bottom: 20px!important;
       padding-bottom: 0px; }
     .single-posts .single-post .down-content p.first-paragraph {
       margin-top: 25px; }
