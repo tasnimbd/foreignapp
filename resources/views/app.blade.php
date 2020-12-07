@@ -24,7 +24,6 @@
 <body>
     <div id="app">
         <frontend-router></frontend-router>
-        
     </div>
 
     <!-- Scripts -->

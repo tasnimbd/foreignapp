@@ -17,7 +17,7 @@
             <div class="row">
             <div class="col-lg-4 align-self-center">
                 <div class="logo">
-                <router-link to="/"><img style="width:25%!important;" src="frontend/images/logo.png" alt=""></router-link>
+                <router-link to="/"><img style="width:25%!important;" :src="`${publicPath}frontend/images/logo.png`" alt=""></router-link>
                 </div>
             </div>
             <!--<div class="col-lg-4 align-self-center">
@@ -43,7 +43,7 @@
         <div class="container expanded">
             <div class="header-wrap">
             <div class="header-logo">
-                <router-link to="/"><img src="frontend/images/logo.png" alt=""></router-link>
+                <router-link to="/"><img :src="`${publicPath}frontend/images/logo.png`" alt=""></router-link>
             </div>
             <div class="header-nav">
                 <ul class="main-menu">
@@ -146,6 +146,7 @@ export default {
       categories: [],
       search:'',
       //posts:[]
+      publicPath: 'http://127.0.0.1:8000/'
     }
   },
   methods:{

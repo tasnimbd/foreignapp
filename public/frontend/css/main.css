@@ -2691,6 +2691,27 @@ section.large-gap {
     font-weight: 600;
   }
 
+  th, td {
+    text-align: left;
+}
+
+  .table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 12px;
+    line-height: 2;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    width: 100%;
+  }
+  .tbody tr:first-of-type td, td {
+    border-top-color: #1871bf;
+  }
+
+  tbody tr:first-of-type td {
+      border-top: 4px solid #f26c4f;
+  }
+
   .single-posts .single-post .down-content h3{
     margin-top: 20px!important;
     margin-bottom: 20px;

@@ -243,7 +243,10 @@ export default {
 					break;
 				case 'list':
 					this.articleHTML += this.makeList(obj)
-					break;
+          break;
+        case 'table':
+          this.articleHTML += this.makeTable(obj)
+          break;
 				case "quote":
 					this.articleHTML += this.makeQuote(obj)
 					break;

@@ -49,6 +49,14 @@ class FrontendController extends Controller
         ],200);
     }
 
+    public function getpost_by_slug_lara($slug){
+        //$post = Post::with(['cat', 'user'])->where('slug',$slug)->first();
+        //$categories = Category::all();
+        //$lposts = Post::orderBy('id', 'desc')->get(['title', 'post_excerpt', 'slug', 'feature_photo', 'created_at']);
+        //$count_categories = Category::withCount('post_count')->get();
+        return view('app');
+    }
+
 
 
 

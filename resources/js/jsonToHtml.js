@@ -86,6 +86,21 @@ export default {
             
            
         },
+        makeTable(obj) {
+            
+            const table = obj.data.content.map(content => {
+                return `<tr><td>${content}</td></tr>`;
+            });
+            return `<table class="blog_post_table">
+                    <tbody>
+                        ${table.join('')}
+                    </tbody>
+                    </table>`;
+
+
+            
+           
+        },
         makeQuote(obj) {
             return `<div class="spcl_line mar_b30">
                         <blockquote>

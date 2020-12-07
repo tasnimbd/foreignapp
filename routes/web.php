@@ -32,8 +32,17 @@ Route::get('pubgetcategory', 'FrontendController@getCategories');
 Route::get('pubgetcategorywithcount', 'FrontendController@getCategoriesCount');
 Route::get('pubgetpost', 'FrontendController@getPost');
 Route::get('publatestpost', 'FrontendController@pubLatestPost');
+
+//extra
+Route::get('blog/pubgetcategorywithcount', 'FrontendController@getCategoriesCount');
+Route::get('blog/publatestpost', 'FrontendController@pubLatestPost');
+Route::get('blog/pubgetcategory', 'FrontendController@getCategories');
 //Route::get('search', 'FrontendController@frontendsearch');
 Route::get('/singlepost/{slug}','FrontendController@getpost_by_slug');
+
+
+//laravel blog routes
+Route::get('/blog/{slug}','FrontendController@getpost_by_slug_lara');
 
 
 
