@@ -87,10 +87,86 @@ export default {
            
         },
         makeTable(obj) {
-            
+       
             const table = obj.data.content.map(content => {
-                return `<tr><td>${content}</td></tr>`;
+
+                if(content[0] !=null && content[1] ==null){
+                    return `<tr>
+                                <td>${content[0]}</td>
+                            </tr>`;
+                }else if(content[0] !=null && content[1] !=null && content[2] ==null){
+                    return `<tr>
+                                <td>${content[0]}</td>
+                                <td>${content[1]}</td>
+                            </tr>`;
+                }else if(content[0] !=null && content[1] !=null && content[2] !=null && content[3] ==null){
+                    return `<tr>
+                                <td>${content[0]}</td>
+                                <td>${content[1]}</td>
+                                <td>${content[2]}</td>
+                            </tr>`;
+                }else if(content[0] !=null && content[1] !=null && content[2] !=null && content[3] !=null && content[4] ==null){
+                    return `<tr>
+                                <td>${content[0]}</td>
+                                <td>${content[1]}</td>
+                                <td>${content[2]}</td>
+                                <td>${content[3]}</td>
+                            </tr>`;
+                }else if(content[0] !=null && content[1] !=null && content[2] !=null && content[3] !=null && content[4] !=null && content[5] ==null){
+                    return `<tr>
+                                <td>${content[0]}</td>
+                                <td>${content[1]}</td>
+                                <td>${content[2]}</td>
+                                <td>${content[3]}</td>
+                                <td>${content[4]}</td>
+                            </tr>`;
+                }else if(content[0] !=null && content[1] !=null && content[2] !=null && content[3] !=null && content[4] !=null && content[5] !=null && content[6] ==null){
+                    return `<tr>
+                                <td>${content[0]}</td>
+                                <td>${content[1]}</td>
+                                <td>${content[2]}</td>
+                                <td>${content[3]}</td>
+                                <td>${content[4]}</td>
+                                <td>${content[5]}</td>
+                            </tr>`;
+                }else if(content[0] !=null && content[1] !=null && content[2] !=null && content[3] !=null && content[4] !=null && content[5] !=null && content[6] !=null && content[7] ==null){
+                    return `<tr>
+                                <td>${content[0]}</td>
+                                <td>${content[1]}</td>
+                                <td>${content[2]}</td>
+                                <td>${content[3]}</td>
+                                <td>${content[4]}</td>
+                                <td>${content[5]}</td>
+                                <td>${content[6]}</td>
+                            </tr>`;
+                }else if(content[0] !=null && content[1] !=null && content[2] !=null && content[3] !=null && content[4] !=null && content[5] !=null && content[6] !=null && content[7] !=null && content[8] ==null){
+                    return `<tr>
+                                <td>${content[0]}</td>
+                                <td>${content[1]}</td>
+                                <td>${content[2]}</td>
+                                <td>${content[3]}</td>
+                                <td>${content[4]}</td>
+                                <td>${content[5]}</td>
+                                <td>${content[6]}</td>
+                                <td>${content[7]}</td>
+                            </tr>`;
+                }else{
+                    return '';
+                }
+                
+                /*return `<tr>
+                            <td>${content[0]}</td>
+                            <td>${content[1]}</td>
+                            <td>${content[2]}</td>
+                            <td>${content[3]}</td>
+                            <td>${content[4]}</td>
+                            
+                        </tr>`;*/
+                
+        
             });
+        
+        
             return `<table class="blog_post_table">
                     <tbody>
                         ${table.join('')}

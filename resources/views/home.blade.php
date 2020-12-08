@@ -12,7 +12,7 @@
 
 <!-- css-->
 <link rel="stylesheet" href="/css/app.css">
-  
+<link rel="icon" href="img/favicon.png" />
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
