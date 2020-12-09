@@ -31,18 +31,24 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('pubgetcategory', 'FrontendController@getCategories');
 Route::get('pubgetcategorywithcount', 'FrontendController@getCategoriesCount');
 Route::get('pubgetpost', 'FrontendController@getPost');
+Route::get('category/pubgetcatpost/{cat_slug}', 'FrontendController@getPostByCatSlug');
 Route::get('publatestpost', 'FrontendController@pubLatestPost');
 
 //extra
 Route::get('blog/pubgetcategorywithcount', 'FrontendController@getCategoriesCount');
 Route::get('blog/publatestpost', 'FrontendController@pubLatestPost');
 Route::get('blog/pubgetcategory', 'FrontendController@getCategories');
+//extra for category page
+Route::get('category/pubgetcategorywithcount', 'FrontendController@getCategoriesCount');
+Route::get('category/publatestpost', 'FrontendController@pubLatestPost');
+Route::get('category/pubgetcategory', 'FrontendController@getCategories');
 //Route::get('search', 'FrontendController@frontendsearch');
 Route::get('/singlepost/{slug}','FrontendController@getpost_by_slug');
 
 
 //laravel blog routes
 Route::get('/blog/{slug}','FrontendController@getpost_by_slug_lara');
+Route::get('/category/{cat_slug}','FrontendController@getpost_by_cat_slug_lara');
 
 
 

@@ -83,12 +83,12 @@ export default {
     }, 
     metaInfo() {
         return { 
-            title: `${this.singlepost.title} - Foreign Company Registration Expert`,
+            title: this.singlepost.title,
             meta: [
-                { name: 'description', content:  'We provide company registration consultancy service for the foreign investors in respective countries by our experts within frame of FDI law'},
-                { property: 'og:title', content: "Foreign Company Registration Consultant"},
-                { property: 'og:description', content: "We provide company registration consultancy service for the foreign investors in respective countries by our experts within frame of FDI law"},
-                { property: 'og:image', content: "http://127.0.0.1:8000/img/ogphoto.jpg"},
+                { name: 'description', content:  this.singlepost.meta_des},
+                { property: 'og:title', content: this.singlepost.title},
+                { property: 'og:description', content: this.singlepost.meta_des},
+                { property: 'og:image', content: this.singlepost.feature_photo},
                 { property: 'og:site_name', content: 'Foreign Company Registration Consultant'}    
                 
             ]

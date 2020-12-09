@@ -35,6 +35,10 @@ export const routes = [
     { 
         path: '/blog/:slug',
         component: require('./components/frontend/Single.vue').default
+    },
+    { 
+        path: '/category/:cat_slug',
+        component: require('./components/frontend/Categorypost.vue').default
     }
    
 ]

@@ -32,6 +32,7 @@
                           
                           <Button type="success" @click="$router.push(`/editpost/${blog.id}`)"><i class="fas fa-edit"></i></Button>
                           <Button type="error" @click="deletePost(blog.id)"><Icon type="md-trash" /></Button>
+                          <a class="btn btn-primary" :href="`/blog/${blog.slug}`" target="_blank"><i class="fas fa-eye"></i></a>
                       </td>
                     </tr>
                     

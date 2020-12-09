@@ -82,29 +82,17 @@
             <div class="instagram-account">
               <div class="widget-content">
                 <div class="widget-header">
-                  <h4><a href="#">@shareenBlog</a></h4>
+                  <h4><a>Recent News</a></h4>
                 </div>
                 <div class="row">
-                  <div class="col-lg-3">
-                    <div class="instagram-item">
-                      <img src="http://placehold.it/255x220" alt="">
+                  <div class="col-lg-3" v-for="(lpost, i) in latestpost" :key="i">
+                    <div class="instagram-item" v-if="i<4">
+                      <router-link :to="`/blog/${lpost.slug}`">
+                      <img :src="lpost.feature_photo" :alt="lpost.title">
+                      </router-link>
                     </div>
                   </div>
-                  <div class="col-lg-3">
-                    <div class="instagram-item">
-                      <img src="http://placehold.it/255x220" alt="">
-                    </div>
-                  </div>
-                  <div class="col-lg-3">
-                    <div class="instagram-item">
-                      <img src="http://placehold.it/255x220" alt="">
-                    </div>
-                  </div>
-                  <div class="col-lg-3">
-                    <div class="instagram-item">
-                      <img src="http://placehold.it/255x220" alt="">
-                    </div>
-                  </div>
+                 
                 </div>
               </div>
             </div>
@@ -118,16 +106,13 @@
         <div class="row">
           <div class="col-lg-12">
             <ul class="footer-social-icons">
-              <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
-              <li><a href="#"><i class="fa fa-behance"></i> Behance</a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i> Linkedin</a></li>
-              <li><a href="#"><i class="fa fa-dribbble"></i> Dribbble</a></li>
+              <li style="margin:0 10px;" v-for="(cat, i) in categories" :key="i"><router-link :to="`/category/${cat.cat_slug}`">{{cat.cat_name}}</router-link></li>
+              
             </ul>
           </div>
           <div class="col-lg-12">
             <div class="copyright-text">
-              <p>all rights reserved. <a href="#">robert imeri</a> 2020.</p>
+              <p>all rights reserved. <router-link to="/">Foreign Company Registration</router-link> 2020.</p>
             </div>
           </div>
         </div>
@@ -144,8 +129,7 @@ export default {
   data(){
     return {
       categories: [],
-      search:'',
-      //posts:[]
+      latestpost: [],
       publicPath: 'http://127.0.0.1:8000/'
     }
   },
@@ -154,21 +138,15 @@ export default {
         axios.get('pubgetcategory')
         .then(({data}) => (this.categories = data))
     },
-    searchit:_.debounce(function () {
-      let query = this.search
-      axios.get('search?q='+ query)
-      .then((data) => {
-        this.posts = data.data
-      })
-      .catch(() => {
-        
-      })
-    },1000)
-
+    loadLatestpost(){
+        axios.get('publatestpost')
+        .then(({data}) => (this.latestpost = data))
+    },
   },
-
+  
   created(){
       this.loadCategories()
+      this.loadLatestpost()
      
       
   }

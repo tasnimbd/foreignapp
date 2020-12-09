@@ -50,11 +50,19 @@ class FrontendController extends Controller
     }
 
     public function getpost_by_slug_lara($slug){
-        //$post = Post::with(['cat', 'user'])->where('slug',$slug)->first();
-        //$categories = Category::all();
-        //$lposts = Post::orderBy('id', 'desc')->get(['title', 'post_excerpt', 'slug', 'feature_photo', 'created_at']);
-        //$count_categories = Category::withCount('post_count')->get();
         return view('app');
+    }
+    public function getpost_by_cat_slug_lara($slug){
+        return view('app');
+    }
+
+    public function getPostByCatSlug($cat_slug){
+        $catId = Category::where('cat_slug', $cat_slug)->first();
+        $catIdBySlug = $catId->id;
+
+        return $posts = Post::with('user')->whereHas('cat', function($q) use($catIdBySlug){
+            $q->where('category_id', $catIdBySlug);
+        })->orderBy('id', 'desc')->latest()->paginate(2);
     }
 
 
