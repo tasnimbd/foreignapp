@@ -233,7 +233,7 @@ export default {
 					this.articleHTML += `<div class="ce-block">
 					<div class="ce-block__content">
 					<div class="ce-code">
-						<code>${obj.data.html}</code>
+						<p>${obj.data.html}</p>
 					</div>
 					</div>
 				</div>\n`;

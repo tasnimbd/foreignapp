@@ -5,13 +5,26 @@
                 <div class="col-lg-12">
                 <div class="widget-sidebar about-me">
                     <div class="widget-header">
+                    <h4>Search</h4>
+                    </div>
+                    <div class="widget-content">
+                        <form class="form-search">
+                        <input @keyup="RealSearch" placeholder="Type something" v-model="keyword" type="text" class="input-medium search-query">
+                        <button type="submit" @click.prevent="RealSearch" class="btn btn-square btn-theme">Search</button>
+                        </form>
+                    </div>
+                </div>
+                </div>
+                <div class="col-lg-12">
+                <div class="widget-sidebar about-me">
+                    <div class="widget-header">
                     <h4>About Us</h4>
                     </div>
                     <div class="widget-content">
                     <img src="/img/aboutus.jpg" alt="">
                     <p style="text-align:left;">Foreign Company Registration is one of the world leading consulting firm. We have started our journey in 2012. Since then, we are providing various quality business services which include Company registration for foreign investors, Accounting, Income Tax, Free Business Advisory etc.</p>
                     <div style="box-shadow:1px 1px 3px #ddd;background:#ddd;" class="normal-white-button">
-                        <a href="#">Read More</a>
+                        <router-link :to="{ name: 'page', params: { slug: 'about-us' }}">Read More</router-link>
                     </div>
                     <ul class="social-icons">
                         <li><a href="https://www.facebook.com/sfconsultingbd/" target="_blank"><i class="fa fa-facebook"></i></a></li>
@@ -71,12 +84,14 @@
 </template>
 
 <script>
+import _ from 'lodash'
 export default {
     name: "Sidebar",
     data(){
         return{
             latestpost: [],
-            categorieswithcount: []
+            categorieswithcount: [],
+            keyword:''
         }
     },
     methods:{
@@ -87,7 +102,12 @@ export default {
         loadCategories(){
         axios.get('pubgetcategorywithcount')
         .then(({data}) => (this.categorieswithcount = data))
-    }
+        },
+        RealSearch:_.debounce(function () {
+                axios.get('search?s=' + this.keyword)
+                .then(({data}) => (this.posts = data))
+            },1000)
+        
     },
 
     

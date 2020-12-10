@@ -16,17 +16,17 @@
                   <thead>
                     <tr>
                       <th>Title</th>
-                      <th>Author</th>
-                      <th>Categories</th>
+                      <!--<th>Author</th>-->
+                      <!--<th>Categories</th>-->
                       <th>Date</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(blog, i) in blogs" :key="i">
+                    <tr v-for="(blog, i) in blogs.data" :key="i">
                       <td>{{blog.title}}</td>
-                      <td><Tag type="border">{{blog.user.name}}</Tag></td>
-                      <td><span v-for="(c, j) in blog.cat" :key="j"><Tag type="border">{{c.cat_name}}</Tag></span></td>
+                      <!--<td><Tag type="border">{{blog.user.name}}</Tag></td>
+                      <td><span v-for="(c, j) in blog.cat" :key="j"><Tag type="border">{{c.cat_name}}</Tag></span></td>-->
                       <td>{{blog.created_at | myDate}}</td>
                       <td>
                           
@@ -41,7 +41,7 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
-                <!--<pagination :data="categories" @pagination-change-page="getResults"></pagination>-->
+                <pagination :data="blogs" @pagination-change-page="getResults"></pagination>
               </div>
             </div>
             <!-- /.card -->
@@ -65,10 +65,16 @@
         },
         data () {
             return {
-                blogs: [],
+                blogs: {},
             }
         },
         methods: {
+            getResults(page = 1) {
+              axios.get('blogsdata?page=' + page)
+                .then(response => {
+                  this.blogs = response.data;
+                });
+            },
             deletePost(id){
               Swal.fire({
                 title: 'Are you sure?',
@@ -108,6 +114,16 @@
       
 
       created(){
+        Fire.$on('searching', () => {
+          let query = this.$parent.$parent.search
+          axios.get('findpost?q='+ query)
+          .then((data) => {
+            this.blogs = data.data
+          })
+          .catch(() => {
+            
+          })
+        })
         this.loadPost()
         Fire.$on('AfterCreate', () => {
                this.loadPost()

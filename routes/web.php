@@ -23,6 +23,26 @@ Route::post('/delete_image', 'PostController@deleteImage');
 Route::get('blogsdata', 'PostController@blogdata'); // get the blogs item
 Route::get('blogsingle/{id}', 'PostController@getSinglePostData'); // get the single post items
 Route::post('updatepost/{id}', 'PostController@updatePost');
+Route::get('findpost', 'PostController@searchPost');
+
+//fix admin routing for reloading
+Route::get('/categories', 'HomeController@index');
+
+Route::get('/manageposts', 'HomeController@index');
+Route::get('/createpost', 'HomeController@index');
+
+Route::get('/managepages', 'HomeController@index');
+Route::get('/createpage', 'HomeController@index');
+Route::get('/dashboard', 'HomeController@index');
+//fix admin routing for reloading
+
+//admin page routes
+Route::post('/create-page', 'PostController@createPage');
+Route::get('pagedata', 'PostController@getPageData'); // get the page item
+Route::get('pagesingle/{id}', 'PostController@getSinglePageData'); // get the single post items
+Route::post('updatepage/{id}', 'PostController@updatePage');
+Route::get('/deletepage/{id}', 'PostController@deletePage');
+Route::get('findpage', 'PostController@searchPage');
 
 Auth::routes();
 
@@ -42,17 +62,20 @@ Route::get('blog/pubgetcategory', 'FrontendController@getCategories');
 Route::get('category/pubgetcategorywithcount', 'FrontendController@getCategoriesCount');
 Route::get('category/publatestpost', 'FrontendController@pubLatestPost');
 Route::get('category/pubgetcategory', 'FrontendController@getCategories');
-//Route::get('search', 'FrontendController@frontendsearch');
+Route::get('search', 'FrontendController@frontendsearch');
 Route::get('/singlepost/{slug}','FrontendController@getpost_by_slug');
+Route::get('/singlepage/{slug}','FrontendController@getpage_by_slug');
 
 
 //laravel blog routes
 Route::get('/blog/{slug}','FrontendController@getpost_by_slug_lara');
 Route::get('/category/{cat_slug}','FrontendController@getpost_by_cat_slug_lara');
+Route::get('/{slug}','FrontendController@getpage_by_slug_lara');
 
 
 
 Route::post('/createpost', 'AdminContrller@uploadEditorImage');
+Route::post('/createpage', 'AdminContrller@uploadEditorImage');
 
 Route::get('{path}', 'HomeController@index')->where( 'path', '([A-z\d\/.]+)?' );
 //Route::get('{path}',"HomeController@index")->where('path','[-a-z0-9_\s]+');

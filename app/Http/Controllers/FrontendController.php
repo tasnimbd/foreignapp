@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\PostCategory;
@@ -28,9 +29,9 @@ class FrontendController extends Controller
         return $posts = Post::orderBy('id', 'desc')->get(['title', 'post_excerpt', 'slug', 'feature_photo', 'created_at']);
     }
 
-    /*public function frontendsearch(){
+    public function frontendsearch(){
 
-        if ($search = \Request::get('q')) {
+        if ($search = \Request::get('s')) {
             $posts = Post::where(function($query) use ($search){
                 $query->where('title','LIKE',"%$search%");
             })->paginate(10);
@@ -40,7 +41,7 @@ class FrontendController extends Controller
 
         return $posts;
 
-    }*/
+    }
 
     public function getpost_by_slug($slug){
         $post = Post::with(['cat', 'user'])->where('slug',$slug)->first();
@@ -66,7 +67,16 @@ class FrontendController extends Controller
     }
 
 
-
+    //for page
+    public function getpage_by_slug($slug){
+        $page = Page::where('slug',$slug)->first();
+        return response()->json([
+            'page'=>$page
+        ],200);
+    }
+    public function getpage_by_slug_lara($slug){
+        return view('app');
+    }
 
 
 

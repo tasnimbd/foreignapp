@@ -28,6 +28,18 @@ export const routes = [
         component: require('./components/admin/posts/Edit.vue').default 
     },
     { 
+        path: '/managepages', 
+        component: require('./components/admin/page/Pagelist.vue').default 
+    },
+    { 
+        path: '/createpage', 
+        component: require('./components/admin/page/Createpage.vue').default 
+    },
+    { 
+        path: '/editpage/:id', 
+        component: require('./components/admin/page/Editpage.vue').default 
+    },
+    { 
         path: '/', 
         component: require('./components/frontend/Home.vue').default
     },
@@ -39,6 +51,11 @@ export const routes = [
     { 
         path: '/category/:cat_slug',
         component: require('./components/frontend/Categorypost.vue').default
-    }
+    },
+    { 
+        path: '/:slug',
+        name: 'page',
+        component: require('./components/frontend/Singlepage.vue').default
+    },
    
 ]

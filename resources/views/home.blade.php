@@ -86,34 +86,54 @@
                 <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt green"></i>
                 <p>
-                    Management
+                    Manage Categories
                     <i class="right fas fa-angle-left"></i>
                 </p>
                 </a>
                 <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <router-link to="/categories" class="nav-link">
-                    <i class="fas fa-list-ul nav-icon pink"></i>
-                    <p>Categories</p>
-                    </router-link>
-                </li>
+                  <li class="nav-item">
+                      <router-link to="/categories" class="nav-link">
+                      <i class="fas fa-list-ul nav-icon pink"></i>
+                      <p>Categories</p>
+                      </router-link>
+                  </li>
+                </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt green"></i>
+              <p>
+                  Manage Posts
+                  <i class="right fas fa-angle-left"></i>
+              </p>
+              </a>
+              <ul class="nav nav-treeview">
                 <li class="nav-item">
                     <router-link to="/manageposts" class="nav-link">
                     <i class="fas fa-list-ul nav-icon yellow"></i>
                     <p>Posts</p>
                     </router-link>
                 </li>
-               
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="../widgets.html" class="nav-link">
-                <i class="nav-icon fas fa-user"></i>
-                <p>
-                    Profile
-                </p>
-                </a>
-            </li>
+              </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-tachometer-alt green"></i>
+            <p>
+                Manage Pages
+                <i class="right fas fa-angle-left"></i>
+            </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                  <router-link to="/managepages" class="nav-link">
+                  <i class="fas fa-list-ul nav-icon green"></i>
+                  <p>Pages</p>
+                  </router-link>
+              </li>
+            </ul>
+        </li>
+           
             <li class="nav-item">
               <a class="nav-link" href="{{ route('logout') }}"
                   onclick="event.preventDefault();

@@ -102,7 +102,7 @@ export default {
     },
 
     
-
+    
     methods:{
         getResults(page = 1) {
             axios.get('pubgetpost?page=' + page)
@@ -112,6 +112,7 @@ export default {
             axios.get('pubgetpost')
             .then(({data}) => (this.posts = data))
         },
+        
         
 
   },
