@@ -3,7 +3,20 @@
         <section class="medium-gap standard-home">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8" v-if="singlepage">
+                    <div class="col-lg-8" v-if="singlepage ==null">
+                    <div class="single-posts">
+                    <div class="row">
+                        <div class="col-lg-12">
+                        <div class="single-post">
+                            <div class="down-content">
+                                <h1>Nothing Found</h1>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="col-lg-8" v-if="singlepage !==null">
                     <div class="single-posts">
                     <div class="row">
                         <div class="col-lg-12">

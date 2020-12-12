@@ -5,14 +5,28 @@ namespace App\Http\Controllers;
 use App\Models\Page;
 use App\Models\Post;
 use App\Models\Category;
+use App\Mail\SendMessage;
 use App\Models\PostCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class FrontendController extends Controller
 {
     public function index(){
         return view('app');
+    }
+
+    public function sendmessage(Request $request){
+        $data = array();
+		$data['cusname'] = $request->cusname;
+		$data['phone'] = $request->phone;
+		$data['email'] = $request->email;
+		$data['subject'] = $request->subject;
+		$data['message'] = $request->message;
+        Mail::to('outsourcingwall@gmail.com')->send(new SendMessage($data));
+    return 'Done';
+        
     }
 
     public function getCategories(){
@@ -22,7 +36,7 @@ class FrontendController extends Controller
         return $categories = Category::withCount('post_count')->get();
     }
     public function getPost(){
-        return $posts = Post::with(['cat', 'user'])->latest()->paginate(2);
+        return $posts = Post::with(['cat', 'user'])->latest()->paginate(4);
     }
 
     public function pubLatestPost(){
@@ -31,12 +45,12 @@ class FrontendController extends Controller
 
     public function frontendsearch(){
 
-        if ($search = \Request::get('s')) {
-            $posts = Post::where(function($query) use ($search){
+        if ($search = \Request::get('q')) {
+            $posts = Post::with(['cat', 'user'])->where(function($query) use ($search){
                 $query->where('title','LIKE',"%$search%");
-            })->paginate(10);
+            })->get();
         }else{
-            $posts = Post::latest()->paginate(10);
+            $posts = 'nothing found';
         }
 
         return $posts;
@@ -56,6 +70,9 @@ class FrontendController extends Controller
     public function getpost_by_cat_slug_lara($slug){
         return view('app');
     }
+    public function searchpage($keyword){
+        return view('app');
+    }
 
     public function getPostByCatSlug($cat_slug){
         $catId = Category::where('cat_slug', $cat_slug)->first();
@@ -70,9 +87,17 @@ class FrontendController extends Controller
     //for page
     public function getpage_by_slug($slug){
         $page = Page::where('slug',$slug)->first();
-        return response()->json([
-            'page'=>$page
-        ],200);
+        
+        //if($page !=null){
+            return response()->json([
+                'page'=>$page
+            ],200);
+        /*}else{
+            return response()->json([
+                'page'=> 'nothing found'
+            ],200);
+        }*/
+        
     }
     public function getpage_by_slug_lara($slug){
         return view('app');

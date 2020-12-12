@@ -58,11 +58,18 @@ Route::get('publatestpost', 'FrontendController@pubLatestPost');
 Route::get('blog/pubgetcategorywithcount', 'FrontendController@getCategoriesCount');
 Route::get('blog/publatestpost', 'FrontendController@pubLatestPost');
 Route::get('blog/pubgetcategory', 'FrontendController@getCategories');
+
+//search extra for frontend
+Route::get('search/pubgetcategorywithcount', 'FrontendController@getCategoriesCount');
+Route::get('search/publatestpost', 'FrontendController@pubLatestPost');
+Route::get('search/pubgetcategory', 'FrontendController@getCategories');
+
 //extra for category page
 Route::get('category/pubgetcategorywithcount', 'FrontendController@getCategoriesCount');
 Route::get('category/publatestpost', 'FrontendController@pubLatestPost');
 Route::get('category/pubgetcategory', 'FrontendController@getCategories');
-Route::get('search', 'FrontendController@frontendsearch');
+Route::get('search/search', 'FrontendController@frontendsearch');
+
 Route::get('/singlepost/{slug}','FrontendController@getpost_by_slug');
 Route::get('/singlepage/{slug}','FrontendController@getpage_by_slug');
 
@@ -71,6 +78,11 @@ Route::get('/singlepage/{slug}','FrontendController@getpage_by_slug');
 Route::get('/blog/{slug}','FrontendController@getpost_by_slug_lara');
 Route::get('/category/{cat_slug}','FrontendController@getpost_by_cat_slug_lara');
 Route::get('/{slug}','FrontendController@getpage_by_slug_lara');
+Route::get('/search/{keyword}','FrontendController@searchpage');
+
+Route::post('sendmessage','FrontendController@sendMessage');
+
+
 
 
 
@@ -79,7 +91,7 @@ Route::post('/createpage', 'AdminContrller@uploadEditorImage');
 
 Route::get('{path}', 'HomeController@index')->where( 'path', '([A-z\d\/.]+)?' );
 //Route::get('{path}',"HomeController@index")->where('path','[-a-z0-9_\s]+');
-//Route::get('{path}', 'FrontendController@index')->where('path','[-a-z0-9_\s]+');
+Route::get('{path}', 'FrontendController@index')->where('path','[-a-z0-9_\s]+');
 
 /*Route::get('{any}', function () {
     return view('app');

@@ -159,7 +159,7 @@ export default {
 
 <style scoped>
 footer {
-    background-color: #1e1e1e;
+    background-color: #217747;
     position: relative;
     z-index: 1;
     border-top: 3px solid #f7f7f7;
@@ -176,8 +176,8 @@ footer {
 }
 .search_input{
   height: 60px;
-  color: #1e1e1e;
-  background: rgba(0, 0, 0, 0);
+  color: #217747;
+  background:#217747;
   padding: 15px;
   font-weight: 500;
   border-top: none;
@@ -186,6 +186,9 @@ footer {
   border-bottom: 1px solid #ffffff;
   text-align: center;
   outline: none;
+}
+footer .copyright-text p {
+    color: #010c07!important;
 }
 
 </style>

@@ -57,5 +57,10 @@ export const routes = [
         name: 'page',
         component: require('./components/frontend/Singlepage.vue').default
     },
+    { 
+        path: '/search/:keyword',
+        name: 'search',
+        component: require('./components/frontend/Search.vue').default
+    }
    
 ]

@@ -82,7 +82,7 @@ export default {
     }, 
     metaInfo() {
         return { 
-            title: "Foreign Company Registration Consultant",
+            title: "Category - Foreign Company Registration Consultant",
             meta: [
                 { name: 'description', content:  'We provide company registration consultancy service for the foreign investors in respective countries by our experts within frame of FDI law'},
                 { property: 'og:title', content: "Foreign Company Registration Consultant"},
